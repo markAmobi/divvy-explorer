@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
   // This is called after the document has loaded in its entirety
   // This guarantees that any elements we bind to will exist on the page
@@ -29,14 +30,61 @@ $(document).ready(function() {
 
   });
 
-});
+// function showInfo(response){
+//   console.log(response);
+// }
+  /// get divvy live json feed
+  $("body").on("click","#show_info",function(event){
+    event.preventDefault();
+    var url = $(this).attr("href");
+    // debugger;
+    var request = $.ajax({
+      method: "GET",
+      url: url,
+      dataType: "json"
+    });
+
+    request.done(parseResponse);
+
+
+  });
+
+}); //end of document ready.
+
+
+function parseResponse(response){
+  // debugger;
+  var name = response.name;
+  var latitude = response.latitude;
+  var longitude = response.longitude;
+  var live_data = JSON.parse(response.live_data);
+  var all_stations = live_data.stationBeanList;
+  var current_station = all_stations.filter(function(station){
+    return station.stationName === name;
+  })[0]
+  debugger;
+}
 
 
  function initialize(latitude, longitude) {
+    var myCenter = new google.maps.LatLng(latitude,longitude)
     var mapProp = {
-      center:new google.maps.LatLng(latitude,longitude),
-      zoom:20,
+      center:myCenter,
+      zoom:10,
       mapTypeId:google.maps.MapTypeId.ROADMAP
     };
     var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+    var marker=new google.maps.Marker({
+      position:myCenter,
+    });
+    marker.setMap(map);
   }
+
+// request = $.ajax({
+//   url: "/divvy"
+// });
+
+// request.done(function(response) {
+//   console.log(response)
+// })
