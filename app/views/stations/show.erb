@@ -1,0 +1,9 @@
+
+<h3><%=@station.name%> </h3>
+
+<div id="show_map">
+<a href="/stations/<%=@station.id%>/map" id="station_map"> Show map</a>
+</div>
+
+
+<%= erb :"stations/show_map", layout: false %>
