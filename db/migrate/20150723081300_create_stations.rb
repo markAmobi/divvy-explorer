@@ -3,8 +3,8 @@ class CreateStations < ActiveRecord::Migration
     create_table :stations do |t|
       t.integer :given_id
       t.string :name
-      t.decimal :longitude, :decimal, precision: 9
-      t.decimal :latitude, :decimal, precision: 9
+      t.float :longitude, {precision: 10, scale: 6}
+      t.float :latitude, {precision: 10, scale: 6}
       t.integer :dpcapacity
       t.string :dateCreated
 

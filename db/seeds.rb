@@ -8,6 +8,7 @@ data.each do |station|
                   name: station[:name],
                   longitude: station[:longitude],
                   latitude: station[:latitude],
-                  dpcapacity: station[:dpcapacity]
+                  dpcapacity: station[:dpcapacity],
+                  dateCreated: station[:datecreated]
                   )
 end
