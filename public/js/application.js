@@ -7,27 +7,36 @@ $(document).ready(function() {
 
 
 
-  $("body").on("click","#station_map", function(){
+  // google.maps.event.addDomListener($("#show_map"), 'station_map', initialize);
+
+  $("body").on("click","#show_map", function(){
     // console.log(event);
       event.preventDefault();
       var url = $(this).attr("href");
       // console.log(url);
-      debugger;
+      // debugger;
       var request = $.ajax({
         method: "GET",
         url: url
       });
 
+      request.done(function(response){
+        // debugger;
+        var pos = JSON.parse(response);
+        initialize(pos.latitude, pos.longitude);
 
-      function initialize() {
-        var mapProp = {
-          center:new google.maps.LatLng(51.508742,-0.120850),
-          zoom:5,
-          mapTypeId:google.maps.MapTypeId.ROADMAP
-        };
-        var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
+      });
+
   });
 
 });
+
+
+ function initialize(latitude, longitude) {
+    var mapProp = {
+      center:new google.maps.LatLng(latitude,longitude),
+      zoom:20,
+      mapTypeId:google.maps.MapTypeId.ROADMAP
+    };
+    var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+  }

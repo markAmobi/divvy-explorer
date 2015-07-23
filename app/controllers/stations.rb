@@ -9,10 +9,13 @@ get '/stations/:id' do
 end
 
 get '/stations/:id/map' do
-
+  @station = Station.find(params[:id])
   if request.xhr?
+    latitude = @station.latitude
+    longitude = @station.longitude
+    # erb :"stations/show_map", layout: false
 
-    erb :"stations/show_map", layout: false
+    {latitude: latitude, longitude: longitude}.to_json
 
   else
     "REQUEST WASNT XHR"
