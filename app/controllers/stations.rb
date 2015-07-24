@@ -9,6 +9,9 @@ get '/stations/graphs' do
   erb :"stations/graphs"
 end
 
+get '/stations/cool_stuff' do
+  erb :"stations/cool_stuff"
+end
 
 get '/stations/:id' do
   @station = Station.find(params[:id])
