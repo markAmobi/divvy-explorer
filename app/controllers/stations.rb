@@ -1,4 +1,5 @@
 require 'net/http'
+require 'nokogiri'
 get '/stations' do
   @stations = Station.all
   erb :"stations/index"
@@ -57,6 +58,19 @@ get '/stations/graphs/show' do
   else
     "Request is Not XHR"
   end
+end
+
+## scrape about page of divvy.
+get '/stations/divvy/about' do
+  about_divvy = Net::HTTP.get_response(URI.parse("https://www.divvybikes.com/about")).body
+  noko = Nokogiri::HTML(about_divvy)
+
+  noko.search(".//aside").remove ## dont need this part.
+
+  @needed_part = noko.search("#content").inner_html
+  # p needed
+  # "Hello World"
+  erb :"/stations/about_divvy"
 end
 
 # get '/divvy' do
