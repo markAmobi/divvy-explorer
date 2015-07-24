@@ -133,6 +133,7 @@ function parseResponse(response){
     return station.stationName === name;
   })[0] //bad code make this better.
 
+  $("#executionTime").html("Time of obtaining data is: " + live_data.executionTime);
   $("#location").html("Address is: " + current_station.location);
   $("#availableDocks").html("Number of available docks is: "+current_station.availableDocks);
   $("#totalDocks").html("Total number of docks is: " + current_station.totalDocks);
