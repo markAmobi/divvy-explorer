@@ -54,7 +54,8 @@ $(document).ready(function() {
     var url = $(this).attr("href");
     var request = $.ajax({
       url: url,
-      method: "GET"
+      method: "GET",
+      dataType: "json"
     });
 
     request.done(getGraph);
@@ -65,32 +66,56 @@ $(document).ready(function() {
 
 
 function getGraph(response){
-  debugger;
+  // debugger;
 
     //TODO: get live feed data into highchart stuff.
      // new Highcharts.Chart({
+
+
+  var live_data = JSON.parse(response.live_data);
+  var all_stations = live_data.stationBeanList;
+  var available_bikes = all_stations.map(function(station){
+    return station.availableBikes;
+  });
+  var station_names = all_stations.map(function(station){
+    return station.stationName;
+  });
+
     $('#graph-container').highcharts({
-      chart: {
-              type: 'bar'
-          },
-          title: {
-              text: 'Fruit Consumption'
-          },
-          xAxis: {
-              categories: ['Apples', 'Bananas', 'Oranges']
-          },
-          yAxis: {
-              title: {
-                  text: 'Fruit eaten'
-              }
-          },
-          series: [{
-              name: 'Jane',
-              data: [1, 0, 4]
-          }, {
-              name: 'John',
-              data: [5, 7, 3]
-          }]
+      title: {
+            text: 'Number of Available Bikes',
+            x: -20 //center
+        },
+        // subtitle: {
+        //     text: 'Source: WorldClimate.com',
+        //     x: -20
+        // },
+        xAxis: {
+            categories: station_names
+        },
+        yAxis: {
+            title: {
+                text: 'Number of Bikes'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        // tooltip: {
+        //     valueSuffix: '°C'
+        // },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [{
+
+            data: available_bikes
+        }]
 
     });
 }
