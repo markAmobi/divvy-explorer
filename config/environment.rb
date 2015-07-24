@@ -15,7 +15,7 @@ require 'pg'
 require 'active_record'
 require 'logger'
 require 'bcrypt'
-require 'faker'
+# require 'faker'
 require 'sinatra'
 require "sinatra/reloader" if development?
 
