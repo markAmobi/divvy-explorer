@@ -1,3 +1,4 @@
+require 'net/http'
 get '/stations' do
   @stations = Station.all
   erb :"stations/index"
