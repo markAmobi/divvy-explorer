@@ -83,7 +83,7 @@ namespace :generate do
 #     end
 #   end
 
-# end
+end
 
 namespace :db do
   desc "Create the database at #{DB_NAME}"
