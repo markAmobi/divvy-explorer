@@ -61,8 +61,19 @@ function parseResponse(response){
   var all_stations = live_data.stationBeanList;
   var current_station = all_stations.filter(function(station){
     return station.stationName === name;
-  })[0]
-  debugger;
+  })[0] //bad code make this better.
+
+
+  //TODO: append appropriate response to correct place
+
+  // debugger;
+  $("#location").html("Address is: " + current_station.location);
+  $("#availableDocks").html("Number of available docks is: "+current_station.availableDocks);
+  $("#totalDocks").html("Total number of docks is: " + current_station.totalDocks);
+  $("#availableBikes").html("Number of bikes available is: " + current_station.availableBikes);
+
+
+  // debugger;
 }
 
 
@@ -70,7 +81,7 @@ function parseResponse(response){
     var myCenter = new google.maps.LatLng(latitude,longitude)
     var mapProp = {
       center:myCenter,
-      zoom:10,
+      zoom:16,
       mapTypeId:google.maps.MapTypeId.ROADMAP
     };
     var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
