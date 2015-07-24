@@ -3,6 +3,11 @@ get '/stations' do
   erb :"stations/index"
 end
 
+get '/stations/graphs' do
+  erb :"stations/graphs"
+end
+
+
 get '/stations/:id' do
   @station = Station.find(params[:id])
   erb :"/stations/show"
@@ -38,6 +43,18 @@ get '/stations/:id/info' do
     {name: name, latitude: latitude, longitude: longitude, live_data: live_data}.to_json
   else
     "REQUEST WASNT XHR"
+  end
+end
+
+
+
+get '/stations/graphs/show' do
+  content_type :json
+  live_data = Net::HTTP.get_response(URI.parse("http://www.divvybikes.com/stations/json")).body
+  if request.xhr?
+    {live_data: live_data}.to_json
+  else
+    "Request is Not XHR"
   end
 end
 

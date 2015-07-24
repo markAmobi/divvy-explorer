@@ -45,13 +45,58 @@ $(document).ready(function() {
     });
 
     request.done(parseResponse);
+  });
 
 
+  $("body").on("click", "#show-graphs", function(){
+    event.preventDefault();
+
+    var url = $(this).attr("href");
+    var request = $.ajax({
+      url: url,
+      method: "GET"
+    });
+
+    request.done(getGraph);
   });
 
 }); //end of document ready.
 
 
+
+function getGraph(response){
+  debugger;
+
+    //TODO: get live feed data into highchart stuff.
+     // new Highcharts.Chart({
+    $('#graph-container').highcharts({
+      chart: {
+              type: 'bar'
+          },
+          title: {
+              text: 'Fruit Consumption'
+          },
+          xAxis: {
+              categories: ['Apples', 'Bananas', 'Oranges']
+          },
+          yAxis: {
+              title: {
+                  text: 'Fruit eaten'
+              }
+          },
+          series: [{
+              name: 'Jane',
+              data: [1, 0, 4]
+          }, {
+              name: 'John',
+              data: [5, 7, 3]
+          }]
+
+    });
+}
+
+
+//parse response of live data.
 function parseResponse(response){
   // debugger;
   var name = response.name;
@@ -63,20 +108,13 @@ function parseResponse(response){
     return station.stationName === name;
   })[0] //bad code make this better.
 
-
-  //TODO: append appropriate response to correct place
-
-  // debugger;
   $("#location").html("Address is: " + current_station.location);
   $("#availableDocks").html("Number of available docks is: "+current_station.availableDocks);
   $("#totalDocks").html("Total number of docks is: " + current_station.totalDocks);
   $("#availableBikes").html("Number of bikes available is: " + current_station.availableBikes);
-
-
-  // debugger;
 }
 
-
+//simple google maps stuff.
  function initialize(latitude, longitude) {
     var myCenter = new google.maps.LatLng(latitude,longitude)
     var mapProp = {
@@ -91,11 +129,3 @@ function parseResponse(response){
     });
     marker.setMap(map);
   }
-
-// request = $.ajax({
-//   url: "/divvy"
-// });
-
-// request.done(function(response) {
-//   console.log(response)
-// })
