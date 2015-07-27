@@ -1,5 +1,5 @@
-<div class="container">
-  <div class="page-header">
+<div>
+  <div class="header">
     <h1>All Stations</h1>
   </div>
 
@@ -7,19 +7,19 @@
 
 
 <div class="row">
-  <div class="col-md-4">
+  <div class="col s12 m4">
   <%@stations[0..100].each do |station| %>
     <a href="/stations/<%=station.id%>"> <%=station.name%></a> <br>
 <%end%>
   </div>
 
-  <div class="col-md-4">
+  <div class="col s12 m4">
     <%@stations[101..200].each do |station| %>
       <a href="/stations/<%=station.id%>"> <%=station.name%></a> <br>
   <%end%>
   </div>
 
-  <div class="col-md-4">
+  <div class="col s12 m4">
     <%@stations[201..-1].each do |station| %>
       <a href="/stations/<%=station.id%>"> <%=station.name%></a> <br>
   <%end%>
