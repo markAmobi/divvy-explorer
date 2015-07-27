@@ -15,9 +15,11 @@
 
     application.css is where you put your styles
   -->
-
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- Compiled and minified materialized CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
+
+
 
   <!-- Latest compiled and minified CSS -->
 <!-- <link rel="stylesheet" href="/css/bootstrap.css"> -->
@@ -25,7 +27,8 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
-
+ <!-- Compiled and minified materialized JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
   <script src="/js/application.js"></script>
 
   <title></title>
@@ -34,23 +37,23 @@
 
 <!-- nav bar -->
 <div class="navbar-fixed">
-  <nav class="blue lighten-1">
-    <div class="nav-wrapper">
-      <a class="brand-logo" href="/">Divvy Explorer</a>
-      <!-- <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a> -->
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
+  <nav class="blue lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a class="brand-logo" href="/">Divvy Explorer</a>
+      <ul class="right hide-on-med-and-down">
         <li><a href="/stations">Stations</a></li>
         <li><a href="/stations/graphs" id="get-graphs">Graphs</a></li>
         <li><a href="/stations/divvy/about">About Divvy</a></li>
         <li><a href="/stations/cool_stuff">Interesting Stuff</a></li>
       </ul>
-      <!-- below ul is only necessary for mobile stuff(not working at the moment). -->
-   <!--    <ul>
+
+      <ul class="side-nav" id="nav-mobile">
         <li><a href="/stations">Stations</a></li>
         <li><a href="/stations/graphs" id="get-graphs">Graphs</a></li>
         <li><a href="/stations/divvy/about">About Divvy</a></li>
         <li><a href="/stations/cool_stuff">Interesting Stuff</a></li>
-      </ul> -->
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+
     </div>
   </nav>
 </div>
@@ -58,14 +61,13 @@
 
 <div class="container">
   <%= yield %>
-
 </div>
 
 <!-- div class="footer-copyright">
   <div class="container" >
     2015 Mark Amobi
   </div> -->
-</div>
+<!-- </div> -->
 </body>
 
 
