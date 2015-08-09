@@ -15,4 +15,9 @@ Below, are some of the things currently on the site:
 
 - You can see a high-chart graph which gives you a rough idea of what the number of bikes is for all stations.
 
-### TODO 
+### TODO
+- add feature for user to select 2 divvy stations and be able to see suggested routes and estimated time for trip.
+
+- add heatmap for visualization showing availability of bikes at stations and availability of empty docks.
+
+- Think of any other feature that can be added to this.

@@ -12,6 +12,26 @@ $(document).ready(function() {
 
   // google.maps.event.addDomListener($("#show_map"), 'station_map', initialize);
 
+  // $("#twitter_data").on("click", function(){
+  //   event.preventDefault();
+  //   // debugger;
+
+  //   var url = "/twitter_data"
+  //   var method = "GET"
+  //   var request = $.ajax({
+  //     url: url,
+  //     method: method,
+  //     dataType: "json"
+  //   });
+
+  //   request.done(function(response){
+  //   // var res = JSON.parse(response);
+  //   debugger;
+
+  //   });
+  // });
+
+
   $("body").on("click","#show_map", function(){
     // console.log(event);
       event.preventDefault();
