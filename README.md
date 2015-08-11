@@ -20,4 +20,6 @@ Below, are some of the things currently on the site:
 
 - add heatmap for visualization showing availability of bikes at stations and availability of empty docks.
 
+- style map based on experience from twitter final project app.
+
 - Think of any other feature that can be added to this.
