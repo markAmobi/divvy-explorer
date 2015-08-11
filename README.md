@@ -3,7 +3,7 @@
  This web app was what I originally came up with when we had about 1.5 days to design something
 "meaningful and beautiful at dbc".
  From time to time, I will add some more functionality to it and also update this README periodically. Feel free to leave comments on any suggestions
- you have.
+ you have. follow on twitter @mark_amobi.
 
 Below, are some of the things currently on the site:
 
