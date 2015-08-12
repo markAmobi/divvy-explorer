@@ -24,4 +24,6 @@ Below, are some of the things currently on the site:
 
 - somehow incooperate twitter stream because why not?
 
+- maybe add oauth?
+
 - Think of any other feature that can be added to this.
