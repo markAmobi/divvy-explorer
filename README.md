@@ -22,4 +22,6 @@ Below, are some of the things currently on the site:
 
 - style map based on experience from twitter final project app.
 
+- somehow incooperate twitter stream because why not?
+
 - Think of any other feature that can be added to this.
