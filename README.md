@@ -26,4 +26,6 @@ Below, are some of the things currently on the site:
 
 - maybe add oauth?
 
+- maybe attempt to do this in rails?
+
 - Think of any other feature that can be added to this.
