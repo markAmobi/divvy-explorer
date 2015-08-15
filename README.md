@@ -28,4 +28,6 @@ Below, are some of the things currently on the site:
 
 - maybe attempt to do this in rails?
 
+- maybe attempt to redo app using node JS.
+
 - Think of any other feature that can be added to this.
